@@ -14,6 +14,7 @@ class Diagrama extends Model
     protected $fillable = ['nombre', 'descripcion', 'contenido', 'terminado', 'user_id'];
 
 
+    
     public function usuarios()
     {
         return $this->belongsToMany(User::class, 'user_diagramas');
