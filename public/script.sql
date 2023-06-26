@@ -6,7 +6,7 @@ create table nahuek(
  nombre varchar(50), 
  primary key(id) 
  );
-create table alison( 
+create table ale( 
  id bigint, 
  primary key(id) 
  );

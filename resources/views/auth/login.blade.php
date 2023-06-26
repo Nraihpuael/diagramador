@@ -35,8 +35,7 @@
                         </label>
                     </div>
                     <div class="form-footer">
-                        <button type="submit" class="btn btn-white w-100">Ingresar</button>
-                    </div>
+                        <button type="submit" class="btn btn-white w-100">Ingresar</button>                    </div>
                 </div>
                
             </form>
