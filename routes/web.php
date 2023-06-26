@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
         $user = Auth::user();
         $cadena = substr($user->email, 0, strpos($user->email, '@'));
         //$notificacion = modelonoti::find(1);
-        $url = 'http://c4diagram.test/diagramar/1';
+        $url = 'http://diagramador.test/diagramar/1';
         $notificacion = [
             'subject' =>'Inivitacion Diagramaa: ',
             'saludo' => 'Hola que tal '.$user->name,

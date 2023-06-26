@@ -6,7 +6,7 @@
         <div class="d-sm-flex">
             <h1 class="navbar-brand navbar-brand-autodark pe-md-3">
                 <a href="{{ route('diagramas.misDiagramas') }}">
-                    <img src="{{ asset('assets/img/uml.png') }}" height="45" alt="C4 Software"
+                    <img src="{{ asset('assets/img/uml.png') }}" height="45"
                         style="filter: opacity(0.6) drop-shadow(0 0 0 rgb(228, 243, 255)) saturate(100%) contrast(100%)">
                         Inicio
                     </a>
