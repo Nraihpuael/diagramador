@@ -1,6 +1,6 @@
 @section('title', 'Usuarios de Diagrama')
 <x-app-layout>
-    <div class="page">
+    <div class="page bg-black">
         <div class="page-wrapper">
             <div class="container-xl">
                 <!-- Page title -->

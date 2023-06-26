@@ -1,6 +1,6 @@
 @section('title', 'Editar Diagrama')
 <x-app-layout>
-    <div class="page">
+    <div class="page bg-black">
         <div class="page-wrapper">
             <div class="container-xl">
                 <!-- Page title -->
@@ -32,7 +32,7 @@
                                     <div class="card-body">
                                         <div class="row g-3">
                                             <div class="col-md-8">
-                                                <div class="form-label text-primary">Nombre del Diagrama</div>
+                                                <div class="form-label">Nombre del Diagrama</div>
                                                 <input name="nombre" type="text"
                                                     class="form-control"
                                                     value="{{ $diagrama->nombre }}" required>
@@ -43,23 +43,19 @@
                                             
                                             <div class="mt-3">
                                                 <div class="row g-3">
-                                                    <div class="col-md-10">
-                                                        <div class="form-label text-primary">Descripcion</div>
+                                                    <div class="col-md-10 ">
+                                                        <div class="form-label ">Descripcion</div>
                                                         <textarea name="descripcion" class="form-control" rows="3" required>{{ $diagrama->descripcion }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8">
-                                                <div class="form-label text-primary">Cargar Diagrama</div>
-                                                <input type="file" name="url" class="form-control"
-                                                    accept=".c4" />
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer bg-transparent mt-2">
                                     <div class="btn-list justify-content-begin">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-black">
                                             Submit
                                         </button>
                                     </div>

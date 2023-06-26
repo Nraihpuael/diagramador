@@ -8,9 +8,8 @@
                     <div class="row g-2 align-items-center">
                         <div class="col">
                             <h2 class="page-title ">
-                                Diagramas
+                                Diagramas en los que participas
                             </h2>
-                            <p style="font-size: 10px">Diagramas en los que participas</p>
 
                         </div>
                         <!-- Page title actions -->
