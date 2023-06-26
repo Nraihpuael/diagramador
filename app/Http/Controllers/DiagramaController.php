@@ -163,7 +163,7 @@ class DiagramaController extends Controller
         $contenido = json_decode($diagrama->contenido);
        
         $cell = $contenido->cells;                
-        dd($cell);
+        //dd($cell);
         $sql = 'create database ' .$nombre. ';'.PHP_EOL.' use ' .$nombre. ';'.PHP_EOL.PHP_EOL;
 
         
@@ -235,8 +235,93 @@ class DiagramaController extends Controller
 
     public function crud(Diagrama $diagrama)
     {
+        $nombre = $diagrama->nombre;
+        $contenido = json_decode($diagrama->contenido);
+        
 
+        $sql= '';
+        $cell = $contenido->cells;                
+        //dd($cell);
+            
+        for ($i = 0; $i < count($cell); $i++) {
+           
+            if ( $cell[$i]->type == 'uml.Class' && (count($cell[$i]->attributes) != 0) ) {
+                $sql .= '           <?php
+
+                namespace App\Http\Controllers;
+                
+                use App\Models\Listing;
+                use Illuminate\Http\Request;
+                use Illuminate\Validation\Rule;
+                ';
+
+                $name = $cell[$i]->name;
+
+                $sql .= 'class '.$name.'Controller extends Controller{
+
+                public function create(Request $request) {
+                $formFields = $request->validate([
+                    ';
+                
+                $atri = $cell[$i]->attributes;    
+                for ($j = 0; $j < count($atri)-1; $j++){
+                    $pieces = explode(" ", $atri[$j]);
+                    $sql .= "'$pieces[0]' => 'required',
+                    ";
+                }
+                $pieces = explode(" ", $atri[count($atri)-1]);
+                $sql .= "   '$pieces[0]' => 'required'
+                    ]);
+                ";
+
+                $sql .= 'Listing::create($formFields);
+                '.
+                "return redirect('/')};
+                
+                ";
+                
+                $sql .= 'public function show( '.$name.' $'.$name.'){
+                        '."return view('$name.show', ['$name' => $$name])}; 
+                        
+                " ;         
+                
+
+                $sql .= 'public function update(Request $request, '.$name.' $'.$name.') {
+                            $formFields = $request->validate([
+                                '   ;
+
+                $atri = $cell[$i]->attributes;    
+                for ($j = 0; $j < count($atri)-1; $j++){
+                    $pieces = explode(" ", $atri[$j]);
+                    $sql .= "'$pieces[0]' => 'required',
+                    ";
+                }
+                $pieces = explode(" ", $atri[count($atri)-1]);
+                $sql .= "       '$pieces[0]' => 'required'
+                        ]);
+                ".'$'.$name.'Listing->update($formFields);
+                '.
+                "return redirect('/')
+                };
+                
+                ";                
+
+                $sql .= 'public function destroy( '.$name.' $'.$name.'){
+                    '.'$'.$name.'Listing->delete();
+                    '.
+                    "return redirect('/')};
+                    
+                }
+                
+    ";
+            }   
+        }
+        $path = 'Controller.php';
+        $th = fopen("$path", "w");
+        fclose($th);
+        $ar = fopen("$path", "a") or die("Error al crear");
+        fwrite($ar, $sql);
+        fclose($ar);
+        return response()->download($path);
     }
-
-   
 }

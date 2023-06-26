@@ -1,17 +1,29 @@
-create database fdg;
- use fdg;
+<?php
 
-create table nahuek( 
- id int,
- nombre varchar(50), 
- primary key(id) 
- );
-create table alison( 
- id bigint, 
- primary key(id) 
- );
-create table cristian( 
- asda date,
- id_nahuek int, 
-primary key(asda, id_nahuek), 
- FOREIGN KEY (id_nahuek) REFERENCES nahuek(id) ON DELETE CASCADE  ON UPDATE CASCADE);
+            namespace App\Http\Controllers;
+            
+            use App\Models\Listing;
+            use Illuminate\Http\Request;
+            use Illuminate\Validation\Rule;
+            class nahuekController extends Controller
+
+                public function create(Request $request) {
+                    
+                    $formFields = $request->validate([
+                        'id' => 'required',
+                       'nombre' => 'required'
+                ]);
+                Listing::create($formFields);
+                return redirect('/')};
+                
+                public function show( nahuek $nahuek){
+                        return view('nahuek.show', ['nahuek' =>$nahuek]); 
+                        
+                public function update(Request $request, nahuek $nahuek) {
+                            $formFields = $request->validate([
+                                'id' => 'required',
+                           'nombre' => 'required'
+                ]);
+                $nahuekListing->update($formFields);
+                return redirect('/')};
+                
