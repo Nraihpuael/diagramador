@@ -131,27 +131,11 @@
                                                     
                                                     @if ($diagrama->user_id == Auth::user()->id)
                                                     <div class="col-auto">
-                                                        <div class="btn-action">
-                                                            <button class="switch-icon switch-icon-flip"
-                                                                data-bs-toggle="switch-icon" title="Estado"
-                                                                onclick="terminado({{ $diagrama->id }})">
-                                                                @if ($diagrama->terminado == 1)
-                                                                    <span class="switch-icon-a text-red mt-1">
-                                                                        <i class="fa-solid fa-check text-success"></i>
-                                                                    </span>
-                                                                    <span class="switch-icon-b text-muted mt-1">
-                                                                        <i class="fa-solid fa-xmark text-danger"></i>
-                                                                    </span>
-                                                                @else
-                                                                    <span class="switch-icon-b text-muted mt-1">
-                                                                        <i class="fa-solid fa-check text-success"></i>
-                                                                    </span>
-                                                                    <span class="switch-icon-a text-red mt-1">
-                                                                        <i class="fa-solid fa-xmark text-danger"></i>
-                                                                    </span>
-                                                                @endif
-                                                            </button>
-                                                        </div>
+                                                        <form method="POST" action="{{ route('diagramas.delete',$diagrama->id) }}" ">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="switch-icon switch-icon-fade"><i class="fa-solid fa-trash" style="color:white"></i></button>
+                                                          </form>
                                                     </div>
                                                     @endif
 

@@ -70,9 +70,11 @@ Route::middleware('auth')->group(function () {
   
     /* Diagramas */
 
-    Route::post('diagramas/exportar', [DiagramaController::class, 'exportar'])->name('exportar');
-    Route::post('diagramas/architec', [DiagramaController::class, 'architect'])->name('architect');
-    Route::get('diagramas/{diagrama}/descargar', [DiagramaController::class, 'descargar'])->name('diagramas.descargar');
+
+    Route::get('diagramas/{diagrama}/script', [DiagramaController::class, 'script'])->name('diagramas.script');
+
+    Route::get('diagramas/{diagrama}/crud', [DiagramaController::class, 'crud'])->name('diagramas.crud');
+
     Route::put('Banear-Diagrama/{diagrama}', [DiagramaController::class, 'banear'])->name('diagramas.banear');
     Route::get('digramas/{diagrama}/usuarios', [DiagramaController::class, 'usuarios'])->name('diagramas.usuarios');
     Route::post('diagramas/agregar-usuario', [DiagramaController::class, 'agregar'])->name('diagramas.agregarUsuario');
@@ -85,7 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::get('diagramas/{diagrama}/edit', [DiagramaController::class, 'edit'])->name('diagramas.edit');
     Route::put('diagramas/{diagrama}/update', [DiagramaController::class, 'update'])->name('diagramas.update');
     Route::post('diagramas/', [DiagramaController::class, 'store'])->name('diagramas.store');
-    Route::delete('diagramar/{diagrama}',[DiagramaController::class, 'destroy'])->name('diagramas.delete');
+    Route::delete('diagramas/{diagrama}',[DiagramaController::class, 'destroy'])->name('diagramas.delete');
     /* Notificaciones */
     Route::post('notificar', [NotificacionController::class, 'notificar'])->name('notificar');
     Route::resource('notificaciones', NotificacionController::class);

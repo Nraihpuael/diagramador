@@ -66,11 +66,13 @@
                                         <div class="list-group-item">
                                             <div class="row align-items-center">
                                                 <div class="col text-truncate">
-                                                    <a href="#" class="text-body">Proyecto:
-                                                        {{ $notificacion->diagrama->nombre }}</a>
-                                                    <div class="text-muted text-truncate mt-n1">
-                                                        {{ $notificacion->contenido }}
-                                                    </div>
+                                                    @if($notificacion->diagrama != null)
+                                                        <a href="#" class="text-body">Proyecto:
+                                                            {{ $notificacion->diagrama->nombre }}</a>
+                                                        <div class="text-muted text-truncate mt-n1">
+                                                            {{ $notificacion->contenido }}
+                                                        </div>
+                                                    @endif    
                                                 </div>
                                                 <div class="col-auto">
                                                     <div class="row">

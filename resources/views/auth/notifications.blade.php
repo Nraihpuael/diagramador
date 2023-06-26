@@ -1,7 +1,7 @@
 @section('title', 'Perfil')
 <x-app-layout>
     <div class="page">
-        <div class="page-wrapper">
+        <div class="page-wrapper bg-black">
             <!-- Page header -->
             <div class="page-header d-print-none">
                 <div class="container-xl">
@@ -11,32 +11,15 @@
                                 Configuraciones
                             </h2>
                         </div>
-                        <!-- Page title actions -->
-                    <div class="col-12 col-md-auto ms-auto d-print-none">
-                        <div class="btn-list">
-                            <a href="{{ route('diagramas.misDiagramas') }}" class="btn btn-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-2"
-                                    width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <rect x="4" y="4" width="6" height="5" rx="2" />
-                                    <rect x="4" y="13" width="6" height="7" rx="2" />
-                                    <rect x="14" y="4" width="6" height="7" rx="2" />
-                                    <rect x="14" y="15" width="6" height="5" rx="2" />
-                                </svg>
-                                Diagrama
-                            </a>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
             <!-- Page body -->
-            <div class="page-body">
+            <div class="page-body bg-white">
                 <div class="container-xl">
                     <div class="card">
                         <div class="row g-0">
-                            <div class="col-3 d-none d-md-block border-end bg-primary-lt">
+                            <div class="col-3 d-none d-md-block border-end  bg-black">
 
                                 <div class="card-body">
                                     <h4 class="subheader">Configuraciones de Cuenta</h4>
@@ -48,10 +31,7 @@
                                             class="list-group-item list-group-item-action d-flex align-items-center active">Mis
                                             Notificaciones</a>
                                     </div>
-                                    <h4 class="subheader mt-4">Contratos</h4>
-                                    <div class="list-group list-group-transparent">
-                                        <a href="#" class="list-group-item list-group-item-action">Planes</a>
-                                    </div>
+                                    
                                 </div>
 
                             </div>
